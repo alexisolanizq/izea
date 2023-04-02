@@ -2,7 +2,7 @@
   <div class="relative">
     <div class="absolute w-full">
       <nav class="flex justify-between items-center mx-6 py-8 mb-20">
-        <img src="@/assets/images/logo/logoIcon.svg" alt="" />
+        <img loading="lazy" src="@/assets/images/logo/logoIcon.svg" alt="" />
         <router-link to="/">
           <v-icon name="ri-close-fill" scale="1.9" fill="#374121" />
         </router-link>
@@ -20,8 +20,8 @@
         </div>
         <div class="fixed bottom-0 right-0 mx-10 mb-6">
           <button
-            :disabled="disabled"
-            :class="`bg-sky-400 font-medium text-white rounded p-3 ${disabled ? 'bg-sky-200' : ''}`"
+            :disabled="contains"
+            :class="`bg-sky-400 font-medium text-white rounded p-3 ${contains ? 'bg-sky-200/95' : ''}`"
           >
             Continuar
           </button>
@@ -34,9 +34,13 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
-const disabled = ref(true)
+defineProps(['contains', 'emailInput'])
 const isLogin = ref(true)
+// const emailInput = ref('')
 const { path } = useRoute()
+// const contains = computed(()=> {
+//   return emailInput.value.includes('@')
+// })
 onMounted(() => {
   if (path !== '/auth/login') {
     isLogin.value = false

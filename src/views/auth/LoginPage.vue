@@ -11,6 +11,6 @@
       </div>
     </button>
     <p class="text-slate-300 text-center mb-4">O</p>
-    <input placeholder="Correo" type="text" class="w-full rounded border border-slate-300 p-3" />
+    <input placeholder="Correo" type="text" class="w-full rounded outline-none border border-slate-300 p-3" />
   </div>
 </template>
