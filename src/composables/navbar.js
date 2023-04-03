@@ -1,4 +1,5 @@
 import { ref, onBeforeMount } from 'vue'
+import useMainStore from '../stores'
 export const useNavbar = () => {
   const navList = ref([
     {
@@ -26,6 +27,8 @@ export const useNavbar = () => {
   const topOfPage = ref(false)
   const dropdownToggle = ref(false)
 
+  const { isAuth } = useMainStore()
+
   const handleScroll = () => {
     if (window.scrollY >= 40) {
       topOfPage.value = true
@@ -37,6 +40,7 @@ export const useNavbar = () => {
   onBeforeMount(() => window.addEventListener('scroll', handleScroll))
 
   return {
+    isAuth,
     navList,
     topOfPage,
     dropdownToggle

@@ -12,6 +12,9 @@ const router = createRouter({
     },
     {
       path: '/',
+      meta: {
+        requiresAuth: false
+      },
       component: () => import('@/views/HomeView.vue')
     },
     dashboardRoutes,
