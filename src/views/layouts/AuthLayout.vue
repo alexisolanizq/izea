@@ -18,14 +18,6 @@
         <div class="flex justify-center items-center h-screen">
           <router-view />
         </div>
-        <div class="fixed bottom-0 right-0 mx-10 mb-6">
-          <button
-            :disabled="contains"
-            :class="`bg-sky-400 font-medium text-white rounded p-3 ${contains ? 'bg-sky-200/95' : ''}`"
-          >
-            Continuar
-          </button>
-        </div>
       </div>
     </div>
   </div>
@@ -36,11 +28,7 @@ import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 defineProps(['contains', 'emailInput'])
 const isLogin = ref(true)
-// const emailInput = ref('')
 const { path } = useRoute()
-// const contains = computed(()=> {
-//   return emailInput.value.includes('@')
-// })
 onMounted(() => {
   if (path !== '/auth/login') {
     isLogin.value = false

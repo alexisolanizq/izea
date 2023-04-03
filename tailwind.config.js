@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'gray-theme': '#ebebeb'
+        'gray-theme': '#f6f6f6'
       },
       backgroundImage: {
         'register-image':

@@ -1,6 +1,6 @@
 <template>
   <div class="relative block">
-    <div class="absolute pointer-events-none">
+    <div v-if="noButton" class="absolute pointer-events-none">
       <v-icon class="absolute top-[17.5px] left-5" color="#9097a2" scale="1" name="hi-search" />
     </div>
     <input
@@ -12,5 +12,5 @@
 </template>
 
 <script setup>
-defineProps(['type', 'placeholder', 'classes'])
+defineProps(['type', 'placeholder', 'classes', 'noButton'])
 </script>

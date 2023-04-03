@@ -26,6 +26,7 @@ router.beforeEach((to, from, next) => {
   const needsAuth = to.matched.some((record) => record.meta.requiresAuth)
   const { isAuth } = useMainStore()
   if (!needsAuth && isAuth && to.name !== 'login') return next({ name: 'dashboard' })
+  if (!needsAuth && isAuth && to.name === ('login' || 'register')) return next({ name: 'dashboard' })
   if (needsAuth && !isAuth) return next({ name: 'login' })
   else next()
 })
